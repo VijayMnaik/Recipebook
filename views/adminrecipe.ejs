@@ -1,0 +1,54 @@
+<% if(recipe != null ) { %>
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><%- recipe.name %></li>
+      </ol>
+    </nav>
+  
+  
+    <div class="row">
+  
+      <div class="col-12 col-md-4">
+        <img src="/uploads/<%- recipe.image %>" class="img-fluid sticky-top" style="top: 20px;" alt="<%- recipe.name %>" loading="lazy">
+      </div>
+  
+      <div class="col-12 col-md-8">
+        <div class="row">
+          <div class="col-12"><h1><%- recipe.name %></h1></div>
+          <div class="col-12 mb-4"><i class="bi bi-tag"></i> <%- recipe.category %></div>
+          <div class="col-12" style="white-space: pre-line;">
+            <h4>Cooking Instructions</h4>
+            <%- recipe.description %>
+          </div>
+        </div>
+  
+        <div class="row pt-4">
+          <div class="col-12">
+            <h4>Ingredients</h4>
+            <ul class="list-group list-group-flush">
+              <% recipe.ingredients.forEach(function(ingredients, index){ %>
+                <li class="list-group-item"><%= ingredients %></li>
+              <% }) %>
+            </ul> 
+            <section class="px-4 py-5 my-5 text-center">
+              <!-- <img src="/img/publish-recipe.png" class="d-block mx-auto mb-4 img-fluid" alt="Publish your recipe for FREE today" width="566" height="208" loading="lazy">
+              <h1 class="display-5 fw-bold">Publish your recipe for FREE today</h1>
+              <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Publish your Recipe in front of thousands of people for free.</p> -->
+                <div>
+                  <a href="/admineupdaterecipe/<%= recipe._id %>" class="btn btn-primary btn-dark btn-lg" style="margin-bottom: 10px;">Update Recipe</a>
+                </div>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                  <a href="/adminrecipeDelete/<%= recipe._id %>" class="btn btn-primary btn-dark btn-lg">Delete Recipe</a>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% } else { %>
+    <p>No item found.</p>
+  <% } %>

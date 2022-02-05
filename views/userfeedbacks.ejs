@@ -1,0 +1,14 @@
+<div>
+    <form action="/userfeedbacks" method="POST">
+      <button type="submit" style="float: right">Clear All Feedbacks</button>
+    <% if(feedbacks.length > 0) { %> <% feedbacks.forEach(function(feedback, index) { %>
+    <div style="border: 5px solid black;border-radius: 15px;padding: 10px 20px;">
+    <div> <%- feedback.email %></div>
+    <div><%- feedback.recipename %></div>
+    <div><%- feedback.rating %></div>
+    <div><%- feedback.suggestion %></div>
+    </div>
+    <br>
+    <% }) %> <% } %>
+  </div>
+  

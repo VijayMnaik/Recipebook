@@ -1,0 +1,7 @@
+<div style="height: 80vh">
+  <form action="/notifications" method="POST">
+    <button type="submit" style="float: right">Clear All Notifications</button>
+  <% if(msgs.length > 0) { %> <% msgs.forEach(function(msg, index) { %>
+  <div class="pt-1"><%- msg.message %></div>
+  <% }) %> <% } %>
+</div>
